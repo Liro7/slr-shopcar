@@ -1,49 +1,28 @@
 <template>
-  <div class="home">
-    <my-head title="购物车案例" background="#1d7bff"></my-head>
-    <div class="list">
-      <my-good v-for="item in list" :key="item.id" :gObj="item"></my-good>
+  <div>
+    <button @click="comname = 'UserName'">账号密码填写</button>
+    <button @click="comname = 'UserInfo'">个人信息填写</button>
+
+    <div style="border: 1px solid #333">
+      <keep-alive>
+        <component :is="comname"></component>
+      </keep-alive>
     </div>
-    <my-foot @changeAll="allFn" :list="list"></my-foot>
   </div>
 </template>
 
 <script>
-// @指的是src目录
-import MyHead from "@/components/MyHead.vue";
-import MyGood from "@/components/MyGood.vue";
-import MyFoot from "@/components/MyFoot.vue";
-
+import UserName from "@/components/UserName.vue";
+import UserInfo from "@/components/UserInfo.vue";
 export default {
-  components: { MyHead, MyGood, MyFoot },
+  components: { UserName, UserInfo },
   data() {
     return {
-      list: [],
+      comname: "UserName", //用来存储组件名
     };
-  },
-  async created() {
-    let { data: res } = await this.$http.get("/api/cart");
-    console.log(res);
-    this.list = res.list;
-    // console.log(this.list);
-  },
-  methods: {
-    // 更改每一个小选框的状态
-    allFn(bool) {
-      this.list.forEach((item) => (item.goods_state = bool));
-    },
   },
 };
 </script>
 
-<style lang="less" scoped>
-.home {
-  display: flex;
-  flex-direction: column;
-  .list {
-    flex: 1;
-    padding-bottom: 50px;
-    overflow: scroll;
-  }
-}
+<style scoped>
 </style>
