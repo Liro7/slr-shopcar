@@ -8,14 +8,18 @@
         <component :is="comname"></component>
       </keep-alive>
     </div>
+
+    <hr />
+    <use-directive></use-directive>
   </div>
 </template>
 
 <script>
 import UserName from "@/components/UserName.vue";
 import UserInfo from "@/components/UserInfo.vue";
+import UseDirective from "@/components/UseDirective.vue";
 export default {
-  components: { UserName, UserInfo },
+  components: { UserName, UserInfo, UseDirective },
   data() {
     return {
       comname: "UserName", //用来存储组件名
