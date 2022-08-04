@@ -1,22 +1,14 @@
 <template>
   <div>
-    <p @click="tzHome">首页</p>
+    <router-link to="/recommend">推荐</router-link>
+    <router-link to="/ranking">排行榜</router-link>
+    <router-link to="/songlist">歌单</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  methods: {
-    tzHome() {
-      this.$router.push({
-        // path: "/home",
-        name: "home",
-
-        // 注意：虽然用name跳转，但是url的hash值还是切换path路径值
-      });
-    },
-  },
-};
+export default {};
 </script>
 
 <style scoped>
