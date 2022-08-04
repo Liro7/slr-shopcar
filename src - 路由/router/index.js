@@ -6,8 +6,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Part from '../views/Part.vue'
 import Find from '../views/Find.vue'
-import Detail from '../views/Detail.vue'
-import MyDetail from '../views/MyDetail.vue'
+import NotFound from '../views/NotFound.vue'
 
 
 // 在vue中，使用vue的插件，都需要调用vue.use()
@@ -16,36 +15,28 @@ Vue.use(VueRouter)
 // 创建路由规则  一一对应关系
 const routes = [
   {
-    path: '/home',  //路由地址
-    name:"home",    //给路由起名字
+    path: '/',  //路由地址
     component: Home 
   },
   {
     path: '/part',
-    name:"part",
     component:Part
   },
   {
     path: '/find',
-    name:"find",
     component:Find
   },
   {
-    path: '/detail',
-    component:Detail
-  },
-  {
-    path: '/mydetail/:users',
-    component:MyDetail
-  },
+    path: '*',
+    component:NotFound
+  }
 ]
 
 // 创建路由对象
 const router = new VueRouter({
   // 路由规则
-  routes,
-  mode:'history'  //打包上线后需要后台的支持
-}) 
+  routes
+})
 
 // 暴露路由对象
 export default router

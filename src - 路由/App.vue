@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrap">
-      <router-link to="/home">首页</router-link>
+      <router-link to="/">首页</router-link>
       <router-link to="/part">part</router-link>
       <router-link to="/find">发现</router-link>
     </div>
