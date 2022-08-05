@@ -20,9 +20,9 @@ Vue.use(VueRouter)
 // 创建路由规则  一一对应关系
 const routes = [
   {
-    path: '/find',
-    // 路由按需加载
-    component: ()=>import('../views/Find.vue'),
+    // path: '/find',
+    // // 路由按需加载
+    // component: ()=>import('../views/Find.vue'),
     children: [
       {
         path: '/ranking',
